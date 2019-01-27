@@ -1,0 +1,47 @@
+scalar DateTime
+
+type Query {
+  me: User
+  budgets: [Budget!]!
+  expenses: [Expense!]!
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  createBudget(name: String, amount: Float!, date: DateTime!): Budget!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Budget {
+  id: ID!
+  name: String!
+  amount: Float!
+  date: DateTime!
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Expense {
+  id: ID!
+  place: String!
+  price: Float!
+  reason: String!
+  date: DateTime!
+  budget: Budget!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}

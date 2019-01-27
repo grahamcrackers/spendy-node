@@ -1,0 +1,29 @@
+type User {
+  id: ID! @unique
+  email: String! @unique
+  password: String!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Budget {
+  id: ID! @unique
+  name: String!
+  amount: Float!
+  date: DateTime!
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Expense {
+  id: ID! @unique
+  place: String!
+  price: Float!
+  reason: String!
+  date: DateTime!
+  budget: Budget!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
