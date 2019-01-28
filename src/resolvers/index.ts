@@ -1,11 +1,13 @@
 import { Query } from './Query'
-import { auth } from './Mutation/auth'
-import { budget } from './Mutation/Budget'
+import { Auth } from './Mutation/Auth'
+import { Budget } from './Mutation/Budget'
+import { Expense } from './Mutation/Expense'
 
 export default {
   Query,
   Mutation: {
-    ...auth,
-    ...budget
+    ...Auth,
+    ...Budget,
+    ...Expense
   }
 }
